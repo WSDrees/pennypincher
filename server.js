@@ -9,6 +9,8 @@ var path = require('path');
 var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
+var Firebase = require("firebase");
+var FireRef = new Firebase("https://pennypincher.firebaseio.com/");
 
 //
 // ## SimpleServer `SimpleServer(obj)`
@@ -23,9 +25,10 @@ var io = socketio.listen(server);
 router.use(express.static(path.resolve(__dirname, 'client')));
 router.set('view engine', 'ejs'); //set the engine to ejs so you can actually view it
 
-
+//ANYTHING YOU WANT TO SHOW ON THE HOMEPAGE(PROCESS) DATA
 router.get("/",function(req,res){
   
+    
   res.render("index");
   
 });
