@@ -1,11 +1,23 @@
 <%- include header.ejs %>
 
-<button onClick="login()">Login</button>
+<div ng-controller="userInfo">
+    <button ng-click="loginAction()">Login</button>
 
+<p><img src="{{image}}"></p>
+<p>{{name}}</p>
+    <button ng-click="logout()">Logout</button>
+</div>
+
+<div id="imagediv"></div>
+<img class="profilePic" id="authData" src=''/>
+
+
+<div class="row">
+    <div class=" large-12 small-12 columns">
 <input type='text' id='nameInput' placeholder='Name'>
 <input type='text' id='messageInput' placeholder='Message'>
-
+</div>
+</div>
 <textarea id="tb"></textarea>
-
 
 <%- include footer.ejs %>

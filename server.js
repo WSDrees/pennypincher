@@ -5,7 +5,8 @@
 //
 var http = require('http');
 var path = require('path');
-
+//var angular = require("angular");
+var serveAngular = require('serve-angular');
 var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
@@ -27,7 +28,6 @@ router.set('view engine', 'ejs'); //set the engine to ejs so you can actually vi
 
 //ANYTHING YOU WANT TO SHOW ON THE HOMEPAGE(PROCESS) DATA
 router.get("/",function(req,res){
-  
     
   res.render("index");
   
