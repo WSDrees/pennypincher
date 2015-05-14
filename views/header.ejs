@@ -5,7 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Penny Pincher</title>
     <link rel="stylesheet" href="/stylesheets/app.css" />
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+        <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
+        <script src="js/socket.io.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>	    
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
     <script src="/bower_components/modernizr/modernizr.js"></script>
+    <style>
+	  .modal-backdrop{
+		  z-index: 0;
+    }
+	
+	  .modal-footer{
+	    padding-bottom: 0;
+	  }
+	</style>
+    
   </head>
   <body ng-app="penny">
 
@@ -21,7 +39,6 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="active"><a href="#">Right Button</a></li>
       <li class="has-dropdown">
         <a href="#">Right Button Dropdown</a>
         <ul class="dropdown">
