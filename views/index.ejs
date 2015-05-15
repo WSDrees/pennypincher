@@ -2,21 +2,17 @@
 
 <div ng-controller="userInfo">
     <button ng-click="loginAction()">Login</button>
-    <button ng-click="logout()">Logout</button>
-    
+    <button ng-click="logout()" id="logOut">Logout</button>
 </div>
-
-
 
 <div id="imagediv">
     <img class="profilePic" id="authData" src="{{image}}"/>
     <p>{{name}}</p>
 </div>
 
-
 <div class="row">
     <div class="large-12 medium-12 small-12 columns">
-        <p id="info">We don't. we hate it actually. So we built a site that will help locating the right prices at the right location. Need to get some great food somewhere in florida but don't want to pay all that money? Truth is there are a lot of restaurants out there with plenty of specials but no one really knows about them. </p>
+        <p id="info">We built a site that will help locating the right prices at the right location. Need to get some great food somewhere in florida but don't want to pay all that money? Truth is there are a lot of restaurants out there with plenty of specials but no one really knows about them. </p>
     </div>
 </div>
 
@@ -43,6 +39,5 @@
         </div>
     </div>
 </div>
-
 
 <%- include footer.ejs %>
