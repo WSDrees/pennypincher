@@ -5,22 +5,17 @@
 //
 var http = require('http');
 var path = require('path');
-var yelp = require('yelp');
 var serveAngular = require('serve-angular');
 var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
+var ejs = require('ejs').compile();
 var Firebase = require("firebase");
 var FireRef = new Firebase("https://pennypincher.firebaseio.com/");
 var bodyParser = require("body-parser");
-var curl = require("curlrequest");
+var request = require('request');
 
-//
-// ## SimpleServer `SimpleServer(obj)`
-//
-// Creates a new instance of SimpleServer with the following options:
-//  * `port` - The HTTP port to listen on. If `process.env.PORT` is set, _it overrides this value_.
-//
+
 var router = express();
 var server = http.createServer(router);
 var io = socketio.listen(server);
@@ -31,35 +26,39 @@ router.set('view engine', 'ejs'); //set the engine to ejs so you can actually vi
 
 //ANYTHING YOU WANT TO SHOW ON THE HOMEPAGE(PROCESS) DATA
 router.get("/",function(req,res){
-      res.render("index");
-});
 
-router.get('/yelp', function(){
+      
+      var yelp = require("yelp").createClient({
+        consumer_key: "44dGAgblwMC4eiapEgv2Eg", 
+        consumer_secret: "7cLJ2tyXnPmdvWDakkcyRTs4qYY",
+        token: "a85eWTlMIhs34Ehs-z9ZmPxrbrVPAMnv",
+        token_secret: "9qxs-Xd-d11WrjGd_96yQB-raQY"
+      });
   
-    io.on('connection', function (socket) {
-    
-        socket.on('location', function (data) {
+  
+        res.render("index");
 
-            var options = { url: 'http://api.yelp.com/business_review_search?term=chinese&amp;lat='+data['lat']+'&amp;long='+data['long']+'&amp;radius=10&amp;limit=5&amp;ywsid=YTfBsfvQR_JdGPmD4SqTWA', include: true };
-              
-            curl.request(options, function(err, yelpResults) {
-              
-            socket.emit('yelpData', {yelp:yelpResults});
+      //On Page Load, Start Socket Connection
+        io.on('connection', function (socket) {
+        
+        //Start Location socket Listening
+        socket.once('location', function (data) {
+            
+            
+            yelp.search({term: "restaurants", location: data['city'], deals_filter: true, limit: 9}, function(error, data) {
+                
+                //console.log(data);
+                socket.emit('yelpData', {yelp:data});
+
               
             });
-              
+            
         });
-        
-  socket.on('yelpData', function (data) {
-        console.log(data);
-        //KEEP AT THE BOTTOM
-        res.send("returned", {yelpResults:data});
-        
-  });
-        
 });
-  
+
+      //Template Render for loading route.
 });
+
 
 router.get("/profile", function(req,res){
   

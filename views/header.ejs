@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Penny Pincher</title>
     <link rel="stylesheet" href="/stylesheets/app.css" />
-    <link rel="stylesheet" href="/stylesheets/main.css" />
-        <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
-        <script src="js/socket.io.js"></script>
-
+    <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
+    <script src="js/socket.io.js"></script>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>	    
     <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
-    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <link rel="stylesheet" href="/stylesheets/main.css" />
     <style>
 	  .modal-backdrop{
 		  z-index: 0;
@@ -26,27 +25,7 @@
     
   </head>
   <body ng-app="penny">
+<header>
+    <h1><a href="/">Penny Pincher</a></h1>
+</header>
 
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="/">Penny Pincher</a></h1>
-    </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
-
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="has-dropdown">
-        <a href="#">Right Button Dropdown</a>
-        <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
-          <li class="active"><a href="#">Active link in dropdown</a></li>
-        </ul>
-      </li>
-    </ul>
-
-  </section>
-</nav>

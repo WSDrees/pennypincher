@@ -1,24 +1,37 @@
-var socket = io.connect();
-
+//Regular Javascript code here
+        var socket = io.connect();
+        
+        //When Page Loads, run the NoGPS callback
         window.onload = function(){
             var location = NoGPS.getLocation(myCallback);
             //console.log(location)
         };
 
-    
+        //Calling function for noGPS
         function myCallback(location) {
             
             var location = JSON.stringify(location);
             var data = JSON.parse(location);
-
-            
-            var lat = data['latitude'];
-            var long = data['longitude'];
-            
-            socket.emit('location', {long:long, lat:lat});
+            console.log(location);
+        
+            var city = data['city'];
+            //Sends Location info to Node
+            socket.emit('location', {city:city});
 
         }
         
+        //Call Socket for returned Yelp Data
+        socket.once('yelpData', function(data){
+            var sendData = data.yelp.businesses;
+            console.log(sendData);
+            //Render using EJS's JS render feature.          
+            var html = new EJS({url: 'returned.ejs'}).render(sendData);
+            //Append EJS Render to Div on page.
+            $('#divResults').append(html);
+        
+        });
+
+    
 /* Angulare Code Below here */        
 
 angular.module('penny', ['ngRoute'])
@@ -109,6 +122,12 @@ function getDeals(yelp){
     
     var dealOptions = { url: 'http://api.yelp.com/v2/businesses/'+title['title']+'&amp;start='+start['start']+'&amp;end='+end['end']+'&amp;popular='+popular['popular']+'&amp;url='+url['url']+'&amp;image'+image['image'] };
     
-    console.log(dealOptions);
+    // curl.request(dealOptions, function(err,yelpOptions){
+    //     yelpOptions = yelpRet.split('\r\n');
+    //     var yelpSend = yelpRet.pop(),
+    //         yelpHead = yelpRet.pop();
+            
+    //     socket.emit('yelpData',{yelp:yelpSend});
+    // });
     
 }//END getDeals()

@@ -3,59 +3,46 @@
 <div ng-controller="userInfo">
     <button ng-click="loginAction()">Login</button>
     <button ng-click="logout()">Logout</button>
-
-<img src="{{image}}">
-<p>{{name}}</p>
     
 </div>
 
-<div id="imagediv"></div>
-<img class="profilePic" id="authData" src=''/>
+
+
+<div id="imagediv">
+    <img class="profilePic" id="authData" src="{{image}}"/>
+    <p>{{name}}</p>
+</div>
 
 
 <div class="row">
-    <div class=" large-12 small-12 columns">
-        <input type='text' id='nameInput' placeholder='Name'>
-        <input type='text' id='messageInput' placeholder='Message'>
-        <textarea id="tb"></textarea>
+    <div class="large-12 medium-12 small-12 columns">
+        <p id="info">We don't. we hate it actually. So we built a site that will help locating the right prices at the right location. Need to get some great food somewhere in florida but don't want to pay all that money? Truth is there are a lot of restaurants out there with plenty of specials but no one really knows about them. </p>
     </div>
 </div>
 
 <div id="divResults"></div>
 
-
-
 <div class="row">
     <div class="large-12 columns">
-        <form action="/processSearch" method="POST">
-        <input type="text" name="foodType" placeholder="Pizza, Tacos, etc.">Food Type: </input>
-        <input type="text" name="term">Term: </input>
-        <input type="text" name="location" id="location">Location: </input>
+        <div class="large-4 columns">
+            <img src="/images/sign-up.svg" class="wow center" height="200" width="200" />
+            <h2 class="wow FadeInDown steps">Step 1</h2>
+            <p class="wow FadeInUp">Sign up for our site or login if you have an account and see what specials are near you! dont worry, you can sign up with your social accounts as simple as 3 clicks!</p>
+        </div>
         
+        <div class="large-4 columns">
+            <img src="images/imGoing.svg" class="wow center" height="200" width="200" />
+            <h2 class="wow FadeInDown steps">Step 2</h2>
+            <p>I add all the design, colors, and everything else we talked about and make a PSD of what the site will look like. If you like, then i start coding! </p>
+        </div>
         
-        </form>
-        <button type="submit">Submit</button>
+        <div class="large-4 columns">
+            <img src="/images/outTheDoor.svg" class="wow center" height="200" width="200" />
+            <h2 class="wow fadeInDown steps">Step 3</h2>
+            <p class="wow fadeInUp">Once its coded up and ready we will meet up again and you will give your final approval. Once you Then... we launch</p>
+        </div>
     </div>
 </div>
 
-
-<!--<p id="info">We don't. we hate it actually. So we built a site that will help locating the right prices at the right location. Need to get some great food somewhere in florida but don't want to pay all that money? Truth is there are a lot of restaurants out there with plenty of specials but no one really knows about them. </p>-->
-
-
-<!--<img src="/images/sign-up.svg" class="wow" height="200" width="200" />-->
-<!--<h2 class="wow FadeInDown steps">Step 1</h2>-->
-<!--<p class="wow FadeInUp">Sign up for our site or login if you have an account and see what specials are near you! dont worry, you can sign up with your social accounts as simple as 3 clicks!</p>-->
-
-
-<!--<img src="images/imGoing.svg" class="wow" height="200" width="200" />-->
-<!--<h2 class="wow FadeInDown steps">Step 2</h2>-->
-<!--<p>I add all the design, colors, and everything else we talked about and make a PSD of what the site will look like. If you like, then i start coding! </p>-->
-
-
-<!--<img src="/images/outTheDoor.svg" class="wow" height="200" width="200" />-->
-<!--<h2 class="wow fadeInDown steps">Step 3</h2>-->
-<!--<p class="wow fadeInUp">Once its coded up and ready we will meet up again and you will give your final approval. Once you Then... we launch</p>-->
-
-<button onClick="getDeals()" href="#">Deals Near You: </button>
 
 <%- include footer.ejs %>
